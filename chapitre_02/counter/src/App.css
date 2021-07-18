@@ -1,0 +1,17 @@
+h1{
+  text-align: center;
+}
+
+.box{
+  height: 190px;
+  padding: 8px;
+  text-align: center;
+}
+.buttonincrement{
+  background-color: red;
+  width: 50px;
+}
+.buttondecrement{
+  background-color: green;
+  width: 50px;
+}
