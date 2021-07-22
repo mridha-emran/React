@@ -23,8 +23,8 @@ class App extends React.Component{
   }
 
   selectAdd () {
-    this.setState({
-      activeTab: "Add"
+      this.setState({
+       activeTab: "Add"
     })
   }
 
@@ -39,32 +39,38 @@ class App extends React.Component{
       activeTab: "Pay"
     })
   }
-  addItem(name, price) {
-    const item = { "name": name, "price": parseInt(price) }
-    this.setState({
-      items: [this.state.items, item]
-    })
-    console.log(this.state.items);
-  }
 
+  addItem = (name, price) => {
+    console.log(price,name)
+    const items = {
+      name: name,
+      price: price
+    }
+    const newItems = this.state.items;
+    newItems.push(items)
+    this.setState({
+      items: newItems
+    })
+  }
   render(){
     return(
       <div>
          <h1>Bakery</h1>
          <ul className="header">
-          <li><button className={this.state.activeTab === "add" ? "btn btn-primary" : "btn btn-light"}
-            onClick={this.selectAdd}> Add </button></li>
-          <li><button className={this.state.activeTab === "list" ? "btn btn-primary" : "btn btn-light"}
-            onClick={this.selectList}> List </button></li>
-          <li><button className={this.state.activeTab === "pay" ? "btn btn-primary" : "btn btn-light"}
-            onClick={this.selectPay}> Pay </button></li>
+          <li><Button className={this.state.activeTab === "add" ? "btn btn-primary" : "btn btn-light"}
+            onClick={this.selectAdd}> Add </Button></li>
+          <li><Button className={this.state.activeTab === "list" ? "btn btn-primary" : "btn btn-light"}
+            onClick={this.selectList}> List </Button></li>
+          <li><Button className={this.state.activeTab === "pay" ? "btn btn-primary" : "btn btn-light"}
+            onClick={this.selectPay}> Pay </Button></li>
 
             
         </ul>
-        <div class="row">
-            {this.state.activeTab === "Add" && <Add></Add>}
-            {this.state.activeTab === "List" && <List></List>}
+        <div className="row">
+            {this.state.activeTab === "Add" && <Add addItem={this.addItem}></Add>}
+            {this.state.activeTab === "List" && <List items={this.state.items}></List>}
             {this.state.activeTab === "Pay" && <Pay></Pay>}
+            
           </div>
 
       </div>
