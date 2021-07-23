@@ -6,9 +6,9 @@ class Card extends React.Component {
     return (
       <section>
        <div>
+          <p> <img src={this.props.flag} alt="flag"/></p>
           <p>Name = {this.props.name}</p>
           <p>Capital = {this.props.capital}</p>
-          <p>Flag = {this.props.flag}</p>
           <p>Population =  {this.props.population}</p>
           <p>Region = {this.props.region}</p>
         </div>

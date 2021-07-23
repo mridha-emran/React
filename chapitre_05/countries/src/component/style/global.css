@@ -1,0 +1,29 @@
+h1 {
+    text-align: center;
+  }
+  
+  .divButton {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .buttonButton {
+    border-style: solid;
+    border-radius: 5px;
+    height: 27px;
+    width: 65px;
+    margin: 30px 5px;
+    text-align: center;
+    color: white;
+    background-color:blue;
+  }
+  
+  .information{
+    text-align: center;
+    font-size: 35px;
+    font-family: monospace;
+  }
+  
+  img{
+    height: 100px;
+  }
