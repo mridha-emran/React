@@ -1,13 +1,18 @@
   
 import React from "react";
 
-
-
-
-
 class List extends React.Component {
   render() {
+
+    if (this.props.items.length === 0) {
+      return (
+          <div className="mt-2">
+              <span className="h1" style={{ fontSize: 30 }}>No items are available</span>
+          </div>
+      )}
+     else{
     return (
+      
       <div>
         <h3>List</h3>
          <ul>
@@ -23,7 +28,7 @@ class List extends React.Component {
       </div>
     );
   }
-
+    }
 }
 
 export default List;

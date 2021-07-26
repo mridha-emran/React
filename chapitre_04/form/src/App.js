@@ -1,4 +1,4 @@
-import React, { isValidElement } from 'react';
+import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -11,7 +11,10 @@ class App extends React.Component{
     this.state = {
       email: "",
       password: "",
-      checkbox: "false"
+      checkbox: false,
+      isValidEmail: false,
+      isValidPassword: false,
+      isSubmit:false,
     }
 
     this.putEmail = this.putEmail.bind(this)
@@ -25,6 +28,14 @@ class App extends React.Component{
      this.setState({
       email: e.target.value
     })
+
+    let email_validator_regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if(email_validator_regex.test(e.target.value)){
+        this.setState({isValidEmail:true})}
+        
+        else{
+        this.setState({isValidEmail:false})
+    }
   }
 
   putPassword(e) {
@@ -32,6 +43,11 @@ class App extends React.Component{
     this.setState({
       password: e.target.value
     })
+    if (e.target.value.length >= 6) {
+      this.setState({ isValidPassword: true })
+    } else {
+      this.setState({ isValidPassword: false })
+    }
   }
 
   checkboxData(e) {
@@ -42,26 +58,28 @@ class App extends React.Component{
   }
 
   submitData(e) {
-
-    let email = e.target.value
-
-
-    const emailValid= /^[^\s@]+@[^\s@]+$/; 
-
-    if(emailValid.test(email)) {
-      return "isValid"
-    
-    } else {
-       return"give me valide number"
-
+     console.log("click")
+    if (this.state.isValidEmail === true && this.state.isValidPassword === true) {
+            this.setState({isSubmit:true})
+    }
       
     }
     
 
 
 
-  }
+  
   render(){
+        if(this.state.isSubmit===true){
+          return(
+            <div className="card_text">
+              <h1>login</h1>
+              <h2>form submite</h2>
+
+            </div>
+          )
+        }
+    
     return(
       <div>
          
@@ -69,7 +87,7 @@ class App extends React.Component{
           <div>
             <label for="inputText" class="form-label">Email </label> <br></br>
 
-            <input type="email" id="inputEmail" class="from-label"  onChange={this.putEmail} value={this.state.email}></input>
+            <input type="email" id="inputEmail" class={this.state.isValidEmail ? "is-valid form-control": "is-invalid form-control"} onChange={this.putEmail} value={this.state.email}></input>
           </div>
         </div>
 
@@ -77,7 +95,7 @@ class App extends React.Component{
         <div className="col-6 mb-3">
           <div>
             <label for="inputPassword" class="form-label">Password</label><br></br>
-            <input id="inputPassword" class="pwdInput" onChange={this.putPassword} value={this.state.password}></input>  
+            <input id="inputPassword" class={this.state.isValidPassword ? "is-valid form-control" : "is-invalid form-control"} onChange={this.putPassword} value={this.state.password}></input>  
           </div>
 
           <div className="mb-3">
@@ -86,8 +104,8 @@ class App extends React.Component{
           </div>
 
           <div className="row p-2 ">
-            <div className="">
-              <button style={{ background: "lightGrey" }} onClick={this.submitData} >Submit</button>
+            <div className="mb-3">
+              <button type="submit" style={{ background: "lightGrey" }}  onClick={this.submitData} >Submit</button>
             </div>
           </div>
         </div>

@@ -26,6 +26,7 @@ class App extends React.Component {
     this.onHeartChange=this.onHeartChange.bind(this)
     this.onStepsChange=this.onStepsChange.bind(this)
     this.onTemperatureChange=this.onTemperatureChange.bind(this)
+    this.calculateWater=this.calculateWater.bind(this)
   }
 
   onHeartChange(e){
@@ -55,22 +56,24 @@ class App extends React.Component {
   }
 
   calculateWater(){
-    let addTemp=0
-    let addStaps=0
-    let addHeart=0
-    if (this.state.temperature > 20){
-      addTemp = (this.state.temperature - 20) * 0.02
+    let addTemp =0;
+    let addHeart =0;
+    let addSteps = 0;
+    if (this.state.temperature > 20) {
+       addTemp= 0.02 * (this.state.temperature - 20)  
     }
 
-   else if (this.state.heart > 120) {
-    addHeart= (this.state.heart - 120) * 0.0008
-   } 
-   
-   else if (this.state.steps > 10000) {
-    addStaps = (this.state.steps - 10000) * 0.00002
-  }
-  const totel= addTemp+addStaps+addHeart
-  this.setState=({water:(1.5+totel).toFixed(2)})
+    if (this.state.heart > 120) {
+      addHeart = 0.0008 * (this.state.heart - 120)
+    }
+
+    if (this.state.steps > 10000) {
+      addSteps = 0.00002 * (this.state.steps - 10000)  
+    }
+
+    let total = addTemp + addHeart + addSteps;
+    this.setState({ water: (1.5 + total )})
+  
 }
   
   render() {
@@ -84,7 +87,7 @@ class App extends React.Component {
           <p> Temperature: {tempMin}</p>
           <p> Steps: {stepsMin}</p> */}
 
-          <Box icon="local_drink" color="#3A85FF"  value={1.5} unit="L" > </Box>
+          <Box icon="local_drink" color="#3A85FF"  value={this.state.water} unit="L" > </Box>
           <Box icon="directions_walk" color="black" min={stepsMin} max={stepsMax} value={this.state.steps} unit="steps" onChangeSlide={this.onStepsChange}/>
           <Box icon="favorite" color="red" min={heartMin} max={heartMax} value={this.state.heart} unit="bpm" onChangeSlide={this.onHeartChange} />
           <Box icon="wb_sunny" color="yellow" min={tempMin} max={tempMax} value={this.state.temperature} unit="°c" onChangeSlide={this.onTemperatureChange} />

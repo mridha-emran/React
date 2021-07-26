@@ -35,6 +35,7 @@ class Pay extends React.Component {
     for (let i = 0; i< newBasket.length; i++) {
         const element = newBasket[i];
         total += parseInt(element.price)
+        
     }
 
     const totalEcoTax = newBasket.length * 0.03
@@ -55,9 +56,9 @@ class Pay extends React.Component {
     return ( 
         <div>
           <p>total: {this.state.total}€</p>
-          <p>total TVA:{this.state.totalTVA}€</p>
-          <p>total eco tax:{this.state.totalEcoTax}€</p>
-          <p>total TTC: {this.state.totalTTC}€</p>
+          <p>total TVA:{this.state.totalTVA.toFixed(2)}€</p>
+          <p>total eco tax:{this.state.totalEcoTax.toFixed(2)}€</p>
+          <p>total TTC: {this.state.totalTTC.toFixed(2)}€</p>
 
       <div className="container">
        <div className="row">
