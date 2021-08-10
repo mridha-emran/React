@@ -3,7 +3,7 @@ import Card from "./Card";
 import moment from "moment";
 
 let TODAY= moment().format("YYYY-DD-MM")
-let LAST_WEEK=moment().subtract(7, 'days').format("YYYY-DD-MM")
+let LAST_WEEK=moment().subtract(1, 'days').format("YYYY-DD-MM")
 
 class Weekly extends React.Component{
 

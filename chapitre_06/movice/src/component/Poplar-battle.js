@@ -2,13 +2,19 @@
 import React, { Component } from 'react';
 import Card from './Card';
 
+
+
 class PopularBattle extends Component {
     favoriteId = [];
-    state = {
-        movies: [],
-        currentBattle: 0
+  constructor(){
+      super()
+      this.state = {
+       movies: [],
+       currentBattle: 0
         
     }
+  }  
+    
 
     componentDidMount(){
         fetch("https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=20e0cad7b9b54645e2cd9dc394f11db8")
