@@ -1,6 +1,6 @@
-import {useState,useEffectEffect, useEffect } from 'react';
-import Login from './Login';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {useState, useEffect } from 'react';
+// import Login from './Login';
+// import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 function Home(){
     const[pokemon, setPokemon]= useState("")
