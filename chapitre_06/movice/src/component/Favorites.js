@@ -41,23 +41,28 @@ export class Favorites extends Component {
 
     render() {
             
-        return (
-            <div>
-                <h1>Favorites</h1>
-                <ul>
+        return(
+            <div className="container">
+              
+              <h1 className="text-center">Favorites</h1>
+
+                <div className="row mt-4">
                     {this.state.movies.map((elem) => {
-                        const movieLink = "https://image.tmdb.org/t/p/w300/"
-                        return <li>
+                    const movieLink = "https://image.tmdb.org/t/p/w300/"
+                        return <div className="col-4">
+                            
                             <Card
                                 poster_path={movieLink + elem.poster_path}
                                 title={elem.title}
+                                vote_average={elem.vote_average}
+                                vote_count={elem.vote_count}
                                 release_date={elem.release_date}
-                                overview={elem.overview}
+                              
                             />
-                        </li>
+                            <p className="col-6">{elem.overview}</p>
+                        </div>
                     })}
-                </ul>
-
+                </div>
             </div>
         )
     }

@@ -50,14 +50,18 @@ class PopularBattle extends Component {
         return (
             
                 <div className="container">
-                    <div className="row">
+                      <h1 className="text-center">Poplar-Battle</h1>
+                    <div className="row mt-4">
                         <div className="col-6"onClick={() => { this.onClick(this.state.movies[this.state.currentBattle].id) }}>
                         <Card
                                 poster_path={this.state.movies[this.state.currentBattle].poster_path}
                                 title={this.state.movies[this.state.currentBattle].title}
                                 release_date={this.state.movies[this.state.currentBattle].release_date}
                                 overview={this.state.movies[this.state.currentBattle].overview}
+                                vote_average={this.state.movies[this.state.currentBattle].vote_average}
+                                vote_count={this.state.movies[this.state.currentBattle].vote_count}
                             />
+                            <p className="col-5 ">{this.state.movies[this.state.currentBattle].overview}</p>
                         </div>
                         <div className="col-6" onClick={() => { this.onClick(this.state.movies[this.state.currentBattle + 1].id) }}>
                         <Card
@@ -65,7 +69,10 @@ class PopularBattle extends Component {
                                 title={this.state.movies[this.state.currentBattle].title+1}
                                 release_date={this.state.movies[this.state.currentBattle+1].release_date}
                                 overview={this.state.movies[this.state.currentBattle+1].overview}
+                                vote_average={this.state.movies[this.state.currentBattle+1].vote_average}
+                                vote_count={this.state.movies[this.state.currentBattle].vote_count}
                             />
+                            <p className="col-5">{this.state.movies[this.state.currentBattle].overview}</p>
                         </div>
                     </div>
                 </div>

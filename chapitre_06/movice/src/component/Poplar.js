@@ -23,22 +23,25 @@ class Poplar extends React.Component{
   }
     render(){
         return(
-            <div>
-                <h1>Poplar</h1>
+            <div className="container">
+             
 
-                <ul>
+                <div className="row mt-4">
                     {this.state.movies.map((elem) => {
-                        const movieLink = "https://image.tmdb.org/t/p/w300/"
-                        return <li>
+                    const movieLink = "https://image.tmdb.org/t/p/w300/"
+                        return <div className="col-3">
+                            
                             <Card
                                 poster_path={movieLink + elem.poster_path}
                                 title={elem.title}
+                                vote_average={elem.vote_average}
+                                vote_count={elem.vote_count}
                                 release_date={elem.release_date}
-                                overview={elem.overview}
+                              
                             />
-                        </li>
+                        </div>
                     })}
-                </ul>
+                </div>
             </div>
         )
     }

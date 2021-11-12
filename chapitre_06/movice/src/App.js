@@ -13,12 +13,12 @@ class App extends React.Component{
   render(){
     return(
       <BrowserRouter>
-
+         <Home />
       <Switch>
-        <Route path="/" exact component={Home} />
+    
+        <Route path="/" exact component={Poplar} />
         <Route path="/weekly" exact component={Weekly} />
         <Route path="/weeklyBattle" exact component={WeeklyBattle} />
-        <Route path="/popular" exact component={Poplar} />
         <Route path="/popularBattle" exact component={PoplarBattle} />
         <Route path="/favorites" exact component={Favorites} />
       </Switch>

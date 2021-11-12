@@ -3,8 +3,6 @@ import Card from "./Card";
 import moment from "moment";
 
 
-let TODAY= moment().format("YYYY-DD-MM")
-let LAST_WEEK=moment().subtract(1, 'days').format("YYYY-DD-MM")
 
 class WeeklyBattle extends React.Component{
     favoriteId = [];
@@ -16,9 +14,10 @@ class WeeklyBattle extends React.Component{
           
       }
     }  
-
     componentDidMount(){
-   
+        let TODAY = moment().format("YYYY-MM-DD");
+        let LAST_WEEK = moment().subtract(7, "days").format("YYYY-MM-DD");
+       
         fetch(`http://api.themoviedb.org/3/discover/movie?primary_release_date.gte=${LAST_WEEK}&primary_release_date.lte=${TODAY}&api_key=20e0cad7b9b54645e2cd9dc394f11db8`)
         .then(res => res.json())
         .then(movie => {
@@ -29,7 +28,11 @@ class WeeklyBattle extends React.Component{
         
         })
         .catch(error => console.error(error));
+    
+    
       }
+
+    
 
       onClick = (id) => {
         this.setState({
@@ -49,7 +52,8 @@ class WeeklyBattle extends React.Component{
         }
         return(
             <div className="container">
-            <div className="row">
+                  <h1 className="text-center">weekly-battle</h1>
+            <div className="row mt-4">
                 <div className="col-6"onClick={() => { this.onClick(this.state.movies[this.state.currentBattle].id) }}>
                 <Card
                         poster_path={this.state.movies[this.state.currentBattle].poster_path}
@@ -57,7 +61,11 @@ class WeeklyBattle extends React.Component{
                         release_date={this.state.movies[this.state.currentBattle].release_date}
                         overview={this.state.movies[this.state.currentBattle].overview}
                     />
+                    <p className="col-5">{this.state.movies[this.state.currentBattle].overview}</p>
                 </div>
+
+
+                
                 <div className="col-6" onClick={() => { this.onClick(this.state.movies[this.state.currentBattle + 1].id) }}>
                 <Card
                         poster_path={this.state.movies[this.state.currentBattle+1].poster_path}
@@ -65,6 +73,7 @@ class WeeklyBattle extends React.Component{
                         release_date={this.state.movies[this.state.currentBattle+1].release_date}
                         overview={this.state.movies[this.state.currentBattle+1].overview}
                     />
+                    <p className="col-5">{this.state.movies[this.state.currentBattle].overview}</p>
                 </div>
             </div>
         </div>
