@@ -18,7 +18,6 @@ class Weekly extends React.Component{
     fetch(`http://api.themoviedb.org/3/discover/movie?primary_release_date.gte=${LAST_WEEK}&primary_release_date.lte=${TODAY}&api_key=20e0cad7b9b54645e2cd9dc394f11db8`)
 	.then(res => res.json())
 	.then(movie => {
-        console.log(movie)
 		this.setState({
             movies: movie.results
         })
