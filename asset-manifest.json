@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/react/chapitre_06/movice/static/css/main.f9873cf1.chunk.css",
+    "main.js": "/react/chapitre_06/movice/static/js/main.2fd26ae5.chunk.js",
+    "main.js.map": "/react/chapitre_06/movice/static/js/main.2fd26ae5.chunk.js.map",
+    "runtime-main.js": "/react/chapitre_06/movice/static/js/runtime-main.4629ae15.js",
+    "runtime-main.js.map": "/react/chapitre_06/movice/static/js/runtime-main.4629ae15.js.map",
+    "static/css/2.0bca3e4c.chunk.css": "/react/chapitre_06/movice/static/css/2.0bca3e4c.chunk.css",
+    "static/js/2.208bbad1.chunk.js": "/react/chapitre_06/movice/static/js/2.208bbad1.chunk.js",
+    "static/js/2.208bbad1.chunk.js.map": "/react/chapitre_06/movice/static/js/2.208bbad1.chunk.js.map",
+    "static/js/3.11f11e64.chunk.js": "/react/chapitre_06/movice/static/js/3.11f11e64.chunk.js",
+    "static/js/3.11f11e64.chunk.js.map": "/react/chapitre_06/movice/static/js/3.11f11e64.chunk.js.map",
+    "index.html": "/react/chapitre_06/movice/index.html",
+    "static/css/2.0bca3e4c.chunk.css.map": "/react/chapitre_06/movice/static/css/2.0bca3e4c.chunk.css.map",
+    "static/css/main.f9873cf1.chunk.css.map": "/react/chapitre_06/movice/static/css/main.f9873cf1.chunk.css.map",
+    "static/js/2.208bbad1.chunk.js.LICENSE.txt": "/react/chapitre_06/movice/static/js/2.208bbad1.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4629ae15.js",
+    "static/css/2.0bca3e4c.chunk.css",
+    "static/js/2.208bbad1.chunk.js",
+    "static/css/main.f9873cf1.chunk.css",
+    "static/js/main.2fd26ae5.chunk.js"
+  ]
+}
