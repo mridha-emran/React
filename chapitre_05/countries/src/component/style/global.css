@@ -1,13 +1,13 @@
 h1 {
     text-align: center;
-  }
-  
-  .divButton {
+}
+
+.divButton {
     display: flex;
     justify-content: center;
-  }
-  
-  .buttonButton {
+}
+
+.buttonButton {
     border-style: solid;
     border-radius: 5px;
     height: 27px;
@@ -15,15 +15,15 @@ h1 {
     margin: 30px 5px;
     text-align: center;
     color: white;
-    background-color:blue;
-  }
-  
-  .information{
+    background-color: blue;
+}
+
+.information {
     text-align: center;
     font-size: 35px;
     font-family: monospace;
-  }
-  
-  img{
+}
+
+img {
     height: 100px;
-  }
+}
