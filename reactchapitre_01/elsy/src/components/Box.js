@@ -6,7 +6,8 @@ class Box extends React.Component{
     render(){
         const slider=()=>{
             if(this.props.unit !=="L"){
-              return(<input  type ="range" min={this.props.min} max={this.props.max} value={this.props.value} onChange={this.props.onChangeSlide}></input>)
+               
+     return(<input  type ="range" min={this.props.min} max={this.props.max} value={this.props.value} onChange={this.props.onChangeSlide}></input>)
       
             }
           }
